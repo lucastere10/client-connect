@@ -7,6 +7,13 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="ExceptionHandler\**" />
+    <Content Remove="ExceptionHandler\**" />
+    <EmbeddedResource Remove="ExceptionHandler\**" />
+    <None Remove="ExceptionHandler\**" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.Mvc.NewtonsoftJson" Version="8.0.5" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="8.0.5">
       <PrivateAssets>all</PrivateAssets>
@@ -16,11 +23,8 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="ExceptionHandler\" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <ProjectReference Include="..\ClientConnect.Dto\ClientConnect.Infrastructure.csproj" />
+    <ProjectReference Include="..\ClientConnect.Domain\ClientConnect.Domain.csproj" />
+    <ProjectReference Include="..\ClientConnect.Infrastructure\ClientConnect.Infrastructure.csproj" />
     <ProjectReference Include="..\ClientConnect.UseCases\ClientConnect.UseCases.csproj" />
   </ItemGroup>
 
