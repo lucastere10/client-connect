@@ -24,21 +24,21 @@ public class EmployeeService
         return employee;
     }
 
-    public IEnumerable<ReadEmployeeDto> GetEmployees(int pageNumber, int pageSize)
+    public IEnumerable<ReadEmployeeSummaryDto> GetEmployees(int pageNumber, int pageSize)
     {
-        return _mapper.Map<List<ReadEmployeeDto>>(_context.Employees
+        return _mapper.Map<List<ReadEmployeeSummaryDto>>(_context.Employees
             .Skip((pageNumber - 1) * pageSize)
             .Take(pageSize)
             .ToList());
     }
 
 
-    public ReadEmployeeDto GetEmployeeById(int id)
+    public ReadEmployeeDetailsDto GetEmployeeById(int id)
     {
         Employee employee = _context.Employees.FirstOrDefault(c => c.EmployeeId == id);
         if (employee != null)
         {
-            return _mapper.Map<ReadEmployeeDto>(employee);
+            return _mapper.Map<ReadEmployeeDetailsDto>(employee);
         }
         return null;
     }

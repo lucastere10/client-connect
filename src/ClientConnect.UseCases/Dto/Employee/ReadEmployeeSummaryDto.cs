@@ -1,7 +1,6 @@
 ﻿namespace ClientConnect.UseCases.Dto.Employee;
-using ClientConnect.Domain.Models;
 
-public class ReadEmployeeDto
+public class ReadEmployeeSummaryDto
 {
     public int EmployeeId { get; set; }
 
@@ -14,6 +13,5 @@ public class ReadEmployeeDto
     public DateTime CreationTimestamp { get; set; }
 
     public DateTime UpdateTimestamp { get; set; }
-
-    public virtual ICollection<Interaction> Interactions { get; set; }
+    public int InteractionCount { get; set; }
 }

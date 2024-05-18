@@ -24,21 +24,21 @@ public class CustomerService
         return customer;
     }
 
-    public IEnumerable<ReadCustomerDto> GetCustomers(int pageNumber, int pageSize)
+    public IEnumerable<ReadCustomerSummaryDto> GetCustomers(int pageNumber, int pageSize)
     {
-        return _mapper.Map<List<ReadCustomerDto>>(_context.Customers
+        return _mapper.Map<List<ReadCustomerSummaryDto>>(_context.Customers
             .Skip((pageNumber - 1) * pageSize)
             .Take(pageSize)
             .ToList());
     }
 
 
-    public ReadCustomerDto GetCustomerById(int id)
+    public ReadCustomerDetailsDto GetCustomerById(int id)
     {
         Customer customer = _context.Customers.FirstOrDefault(c => c.CustomerId == id);
         if (customer != null)
         {
-            return _mapper.Map<ReadCustomerDto>(customer);
+            return _mapper.Map<ReadCustomerDetailsDto>(customer);
         }
         return null;
     }

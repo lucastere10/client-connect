@@ -26,7 +26,7 @@ public class EmployeeController : ControllerBase
     }
 
     [HttpGet]
-    public IEnumerable<ReadEmployeeDto> GetEmployees(int pageNumber = 1, int pageSize = 10)
+    public IEnumerable<ReadEmployeeSummaryDto> GetEmployees(int pageNumber = 1, int pageSize = 10)
     {
         return _employeeService.GetEmployees(pageNumber, pageSize);
     }
@@ -34,7 +34,7 @@ public class EmployeeController : ControllerBase
     [HttpGet("{id}")]
     public IActionResult GetEmployeesById(int id)
     {
-        ReadEmployeeDto employeeDto = _employeeService.GetEmployeeById(id);
+        ReadEmployeeDetailsDto employeeDto = _employeeService.GetEmployeeById(id);
         if (employeeDto != null)
         {
             return Ok(employeeDto);

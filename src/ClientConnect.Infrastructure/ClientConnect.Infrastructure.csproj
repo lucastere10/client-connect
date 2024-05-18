@@ -22,4 +22,8 @@
     <ProjectReference Include="..\ClientConnect.UseCases\ClientConnect.UseCases.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Migrations\" />
+  </ItemGroup>
+
 </Project>
