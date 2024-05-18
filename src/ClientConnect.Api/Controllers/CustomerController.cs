@@ -26,7 +26,7 @@ public class CustomerController : ControllerBase
     }
 
     [HttpGet]
-    public IEnumerable<ReadCustomerDto> GetCustomers(int pageNumber = 1, int pageSize = 10)
+    public IEnumerable<ReadCustomerSummaryDto> GetCustomers(int pageNumber = 1, int pageSize = 10)
     {
         return _customerService.GetCustomers(pageNumber, pageSize);
     }
@@ -34,7 +34,7 @@ public class CustomerController : ControllerBase
     [HttpGet("{id}")]
     public IActionResult GetCustomersById(int id)
     {
-        ReadCustomerDto customerDto = _customerService.GetCustomerById(id);
+        ReadCustomerDetailsDto customerDto = _customerService.GetCustomerById(id);
         if (customerDto != null)
         {
             return Ok(customerDto);

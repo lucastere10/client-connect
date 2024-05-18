@@ -12,7 +12,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace ClientConnect.Infrastructure.Migrations
 {
     [DbContext(typeof(ClientConnectContext))]
-    [Migration("20240515192006_InitialTables")]
+    [Migration("20240517005015_InitialTables")]
     partial class InitialTables
     {
         /// <inheritdoc />
@@ -38,13 +38,16 @@ namespace ClientConnect.Infrastructure.Migrations
 
                     b.Property<string>("Email")
                         .IsRequired()
-                        .HasColumnType("longtext");
+                        .HasColumnType("varchar(255)");
 
                     b.Property<string>("Name")
                         .IsRequired()
                         .HasColumnType("longtext");
 
                     b.HasKey("CustomerId");
+
+                    b.HasIndex("Email")
+                        .IsUnique();
 
                     b.ToTable("Customers");
                 });
@@ -68,7 +71,7 @@ namespace ClientConnect.Infrastructure.Migrations
 
                     b.Property<string>("Email")
                         .IsRequired()
-                        .HasColumnType("longtext");
+                        .HasColumnType("varchar(255)");
 
                     b.Property<string>("Name")
                         .IsRequired()
@@ -85,6 +88,9 @@ namespace ClientConnect.Infrastructure.Migrations
                     MySqlPropertyBuilderExtensions.UseMySqlComputedColumn(b.Property<DateTime>("UpdateTimestamp"));
 
                     b.HasKey("EmployeeId");
+
+                    b.HasIndex("Email")
+                        .IsUnique();
 
                     b.ToTable("Employees");
                 });

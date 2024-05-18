@@ -1,7 +1,7 @@
 ﻿namespace ClientConnect.UseCases.Dto.Customer;
 using ClientConnect.Domain.Models;
 
-public class ReadCustomerDto
+public class ReadCustomerDetailsDto
 {
     public int CustomerId { get; set; }
 
